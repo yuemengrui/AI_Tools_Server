@@ -3,7 +3,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 
-def create_font(txt, sz, font_path="/static/simfang.ttf"):
+def create_font(txt, sz, font_path="static/simfang.ttf"):
     font_size = int(sz[1] * 0.99)
     font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
     length = font.getlength(txt)

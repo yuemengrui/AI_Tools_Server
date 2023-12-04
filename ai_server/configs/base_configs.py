@@ -20,5 +20,6 @@ LAYOUT_LABELS = ['directory', 'header', 'footer', 'title', 'text', 'table_captio
 
 # API LIMIT
 API_LIMIT = {
-    "base": "60/minute"
+    "base": "60/minute",
+    "layout": "600/minute"
 }

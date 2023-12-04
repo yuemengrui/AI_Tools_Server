@@ -1,5 +1,6 @@
 # *_*coding:utf-8 *_*
 import time
+from configs import LAYOUT_MODEL_PATH, LAYOUT_LABELS
 from mylogger import logger
 from fastapi.requests import Request
 from starlette.middleware.cors import CORSMiddleware
@@ -11,8 +12,11 @@ from fastapi.openapi.docs import (
     get_swagger_ui_oauth2_redirect_html,
 )
 from fastapi.staticfiles import StaticFiles
+from ultralytics import YOLO
 
 limiter = Limiter(key_func=lambda *args, **kwargs: '127.0.0.1')
+
+layout_model = YOLO(LAYOUT_MODEL_PATH)
 
 
 def app_registry(app):

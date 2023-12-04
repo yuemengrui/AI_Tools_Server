@@ -15,6 +15,9 @@ OCR_BYTE_URL = ''
 OCR_GENERAL_URL = ''
 UPLOAD_FILE_URL = ''
 
+LAYOUT_MODEL_PATH = ''
+LAYOUT_LABELS = ['directory', 'header', 'footer', 'title', 'text', 'table_caption', 'table', 'figure_caption', 'figure']
+
 # API LIMIT
 API_LIMIT = {
     "base": "60/minute"

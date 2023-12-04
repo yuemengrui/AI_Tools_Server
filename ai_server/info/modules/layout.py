@@ -27,15 +27,14 @@ def layout_analysis(request: Request,
 
     start = time.time()
     try:
-        layouts = layout_model.predict(image)
+        layouts = layout_model.predict(image, conf=req.score_threshold)
         res = []
         for r in layouts:
             pred = r.boxes.cpu().numpy()
             for i in range(len(pred.cls)):
-                if pred.conf[i] > req.score_threshold:
-                    res.append(
-                        {'box': list(map(int, pred.xyxy[i].tolist())), 'label': LAYOUT_LABELS[int(pred.cls[i])],
-                         'score': pred.conf[i]})
+                res.append(
+                    {'box': list(map(int, pred.xyxy[i].tolist())), 'label': LAYOUT_LABELS[int(pred.cls[i])],
+                     'score': pred.conf[i]})
 
         res.sort(key=lambda x: (x['box'][1], x['box'][0]))
         return JSONResponse(LayoutResponse(data=[LayoutOne(**x) for x in res],

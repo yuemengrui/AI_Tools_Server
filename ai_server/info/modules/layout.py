@@ -27,7 +27,7 @@ def layout_analysis(request: Request,
 
     start = time.time()
     try:
-        layouts = layout_model.predict(image, conf=req.score_threshold)
+        layouts = layout_model.predict(image, imgsz=960, iou=0.7, conf=req.score_threshold)
         res = []
         for r in layouts:
             pred = r.boxes.cpu().numpy()

@@ -5,24 +5,7 @@ import cv2
 import requests
 import base64
 from info import logger
-from configs import OCR_BYTE_URL, OCR_GENERAL_URL
-
-
-def get_ocr_byte_res(img):
-    data = {
-        'file': np.array(cv2.imencode('.jpg', img)[1]).tobytes()
-    }
-
-    try:
-        res = requests.post(url=OCR_BYTE_URL,
-                            files=data)
-        # logger.info(res.json())
-        txt = res.json()['data']['results']
-    except Exception as e:
-        logger.error({'EXCEPTION': e})
-        txt = 'None'
-
-    return txt
+from configs import OCR_GENERAL_URL
 
 
 def get_ocr_general_res(img):
@@ -41,4 +24,3 @@ def get_ocr_general_res(img):
     except Exception as e:
         logger.error({'EXCEPTION': e})
         return ''
-

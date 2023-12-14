@@ -11,12 +11,11 @@ os.makedirs(LOG_DIR, exist_ok=True)
 TEMP = './temp'
 os.makedirs(TEMP, exist_ok=True)
 
-OCR_BYTE_URL = ''
 OCR_GENERAL_URL = ''
-UPLOAD_FILE_URL = ''
 
 LAYOUT_MODEL_PATH = ''
-LAYOUT_LABELS = ['directory', 'header', 'footer', 'title', 'text', 'table_caption', 'table', 'figure_caption', 'figure']
+LAYOUT_LABELS = ['directory', 'header', 'footer', 'title', 'text', 'table_caption', 'table', 'figure_caption', 'figure',
+                 'seal']
 
 # API LIMIT
 API_LIMIT = {

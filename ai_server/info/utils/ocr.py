@@ -5,7 +5,7 @@ import cv2
 import requests
 import base64
 from info import logger
-from configs import OCR_GENERAL_URL
+from configs import API_OCR_GENERAL
 
 
 def get_ocr_general_res(img):
@@ -14,7 +14,7 @@ def get_ocr_general_res(img):
     }
 
     try:
-        res = requests.post(url=OCR_GENERAL_URL,
+        res = requests.post(url=API_OCR_GENERAL,
                             json=data)
 
         txt_list = res.json()['data']['results']

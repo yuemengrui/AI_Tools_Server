@@ -11,7 +11,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 TEMP = './temp'
 os.makedirs(TEMP, exist_ok=True)
 
-OCR_GENERAL_URL = ''
+API_OCR_GENERAL = ''
 
 LAYOUT_MODEL_PATH = ''
 LAYOUT_LABELS = ['directory', 'header', 'footer', 'title', 'text', 'table_caption', 'table', 'figure_caption', 'figure',

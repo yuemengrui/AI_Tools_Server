@@ -1,5 +1,7 @@
 # *_*coding:utf-8 *_*
 # @Author : YueMengRui
+import os
+import shutil
 import cv2
 import base64
 import requests
@@ -59,3 +61,13 @@ def resize_4096(img):
         img = cv2.resize(img, dsize=None, fx=scale, fy=scale)
 
     return img, scale
+
+
+def delete_temp(path):
+    try:
+        if os.path.isdir(path):
+            shutil.rmtree(path, ignore_errors=True)
+        else:
+            os.remove(path)
+    except:
+        pass
